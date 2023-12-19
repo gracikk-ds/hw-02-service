@@ -74,7 +74,7 @@ lint:
     - docker run ${DOCKER_IMAGE}:test_${DOCKER_TAG} python -m flake8 --config=setup.cfg ./src
     - docker run ${DOCKER_IMAGE}:test_${DOCKER_TAG} python -m mypy --config-file=pyproject.toml ./src
   needs:
-    - build_image
+    - build_image_test
 
 tests:
   stage: tests
@@ -84,7 +84,7 @@ tests:
     - docker pull ${DOCKER_IMAGE}:prod_${DOCKER_TAG}
     - docker run ${DOCKER_IMAGE}:prod_${DOCKER_TAG} python -m pytest
   needs:
-    - build_image
+    - build_image_prod
     - pull_model
 
 deploy:
