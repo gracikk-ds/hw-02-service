@@ -31,11 +31,6 @@ stages:
   - tests
   - deploy
 
-print_working_directory_before:
-  stage: print
-  script:
-    - ls -la
-
 pull_model:
   <<: *ssh_key_template
   stage: prepare
