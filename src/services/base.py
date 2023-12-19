@@ -24,7 +24,6 @@ class ModelWrapper(ABC):
             checkpoint (str): The path to the model checkpoint.
             device (str): The device to run the model on. Defaults to "cpu".
         """
-        pass
 
     @abstractmethod
     def predict(self, input_data: NDArray[Any]) -> Any:
@@ -37,4 +36,3 @@ class ModelWrapper(ABC):
         Returns:
             Any: The output data.
         """
-        pass

@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from omegaconf import OmegaConf
 
 from src.containers.containers import AppContainer
-from src.routes import detector_endpoints, recognizer_endpoints, health_endpoints
+from src.routes import detector_endpoints, recognizer_endpoints, health_endpoints  # noqa: F401
 from src.routes.routers import detector_router, health_router, recognizer_router
 from src.settings import app_settings
 from src.utils.metrics import PrometheusMiddleware, metrics
