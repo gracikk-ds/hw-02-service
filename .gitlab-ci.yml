@@ -28,6 +28,7 @@ stages:
   - build
   - lint
   - tests
+  - deploy
 
 pull_model:
   <<: *ssh_key_template
