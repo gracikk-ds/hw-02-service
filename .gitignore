@@ -21,7 +21,6 @@ data/qvhighlights_mini/
 **/__pycache__
 .ipynb_checkpoints
 .env
-*.pt
 **.pth
 *.pts
 **.ckpt
