@@ -18,6 +18,7 @@ WORKDIR /app
 
 # Copy source code
 COPY --chown=appuser:appuser src/ src/
+COPY --chown=appuser:appuser tests/ tests/
 
 # Build the production image
 FROM base AS prod
@@ -35,7 +36,7 @@ ARG PORT=8000
 ENV PORT=$PORT
 CMD python -m uvicorn --host 0.0.0.0 --port $PORT --factory src.app:create_app
 
-# tests & lint image
+# lint image
 FROM base AS test
 
 COPY requirements-dev.txt .
