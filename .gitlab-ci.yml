@@ -50,7 +50,7 @@ lint:
     needs:
       - build_image
 
-unit_tests:
+tests:
     stage: tests
     <<: *docker_common
     script:
