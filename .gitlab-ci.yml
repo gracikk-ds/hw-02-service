@@ -25,10 +25,16 @@ variables:
 
 stages:
   - prepare
+  - print
   - build
   - lint
   - tests
   - deploy
+
+print_working_directory:
+  stage: print
+  script:
+    - ls -la
 
 pull_model:
   <<: *ssh_key_template
@@ -43,6 +49,7 @@ pull_model:
     expire_in: 1 day
 
 print_working_directory:
+  stage: print
   script:
     - ls -la
 
