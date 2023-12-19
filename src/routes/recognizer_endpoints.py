@@ -14,7 +14,7 @@ from src.services.recognizer import RecTorchWrapper
 from src.utils.processing import prepare_bbox
 
 
-@recognizer_router.post("/recognize_barcode")
+@recognizer_router.post("/recognize_barcode")  # type: ignore
 @inject
 def recognize_barcode(
     image: bytes = File(),
@@ -36,7 +36,7 @@ def recognize_barcode(
     return service.predict(img)
 
 
-@recognizer_router.post("/recognize_image")
+@recognizer_router.post("/recognize_image")  # type: ignore
 @inject
 def recognize_image(
     image: bytes = File(),

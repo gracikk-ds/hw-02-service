@@ -13,7 +13,7 @@ from src.services.detector import SegTorchWrapper
 from src.utils.processing import prepare_bbox
 
 
-@detector_router.post("/predict_mask")
+@detector_router.post("/predict_mask")  # type: ignore
 @inject
 def predict_mask(
     image: bytes = File(),
@@ -39,7 +39,7 @@ def predict_mask(
     return {"base64_encoded_mask": base64_encoded_mask}
 
 
-@detector_router.post("/predict_barcodes")
+@detector_router.post("/predict_barcodes")  # type: ignore
 @inject
 def predict_barcodes(
     image: bytes = File(),
