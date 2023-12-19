@@ -1,5 +1,5 @@
 """Utility functions for the service."""
-from typing import Tuple
+from typing import Dict, List, Tuple
 
 import cv2
 import numpy as np
@@ -7,6 +7,22 @@ import torch
 from numpy.typing import NDArray
 
 BASE_SCALING_FACTOR: int = 255
+
+
+def prepare_bbox(bbox: List[int]) -> Dict[str, int]:
+    """Convert bbox format COCO -> MinMax.
+
+    Args:
+        bbox (List[int]): list of bbox coords in COCO.
+
+    Returns:
+        Dict[str, int]: Dict of bbox coords in MinMax.
+    """
+    x_min = bbox[0]
+    x_max = x_min + bbox[2]
+    y_min = bbox[1]
+    y_max = y_min + bbox[2]
+    return {"x_min": x_min, "x_max": x_max, "y_min": y_min, "y_max": y_max}
 
 
 def preprocess_image(

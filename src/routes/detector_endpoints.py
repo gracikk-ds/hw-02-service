@@ -10,6 +10,7 @@ from fastapi import Depends, File
 from src.containers.containers import AppContainer
 from src.routes.routers import detector_router
 from src.services.detector import SegTorchWrapper
+from src.utils.processing import prepare_bbox
 
 
 @detector_router.post("/predict_mask")
@@ -32,7 +33,8 @@ def predict_mask(
         dict: A dictionary with the key 'objs' containing the sorted bboxes by confidence.
     """
     img = cv2.imdecode(np.frombuffer(image, np.uint8), cv2.IMREAD_COLOR)
-    mask_bytes = service.predict_mask(img).tobytes()
+    predicted_mask = service.predict_mask(img)
+    mask_bytes = predicted_mask.tobytes()
     base64_encoded_mask = base64.b64encode(mask_bytes).decode("utf-8")
     return {"base64_encoded_mask": base64_encoded_mask}
 
@@ -57,4 +59,5 @@ def predict_barcodes(
         List[List[int]]: Predicted bounding boxes in COCO format.
     """
     img = cv2.imdecode(np.frombuffer(image, np.uint8), cv2.IMREAD_COLOR)
-    return {"barcodes": service.predict(img)}
+    bboxes = service.predict(img)
+    return {"bboxes": [prepare_bbox(bbox) for bbox in bboxes]}
