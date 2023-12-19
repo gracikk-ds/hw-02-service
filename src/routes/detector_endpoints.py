@@ -14,7 +14,7 @@ from src.utils.processing import prepare_bbox
 
 
 @detector_router.post("/predict_mask")  # type: ignore
-@inject
+@inject  # type: ignore
 def predict_mask(
     image: bytes = File(),
     service: SegTorchWrapper = Depends(Provide[AppContainer.seg_model]),
@@ -40,7 +40,7 @@ def predict_mask(
 
 
 @detector_router.post("/predict_barcodes")  # type: ignore
-@inject
+@inject  # type: ignore
 def predict_barcodes(
     image: bytes = File(),
     service: SegTorchWrapper = Depends(Provide[AppContainer.seg_model]),
