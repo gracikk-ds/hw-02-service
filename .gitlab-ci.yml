@@ -41,6 +41,10 @@ pull_model:
       - weights/*.pt
     expire_in: 1 day
 
+print_working_directory:
+  script:
+    - ls -la
+
 build_image_test:
   stage: build
   <<: *docker_common
