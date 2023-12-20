@@ -90,8 +90,8 @@ tests:
   <<: *docker_common
   script:
     - *docker_login
-    - docker pull ${DOCKER_IMAGE}:prod_${DOCKER_TAG}
-    - docker run ${DOCKER_IMAGE}:prod_${DOCKER_TAG} python -m pytest
+    - docker pull ${DOCKER_IMAGE}:test_${DOCKER_TAG}
+    - docker run ${DOCKER_IMAGE}:test_${DOCKER_TAG} python -m pytest
   needs:
     - build_image_prod
     - pull_model
