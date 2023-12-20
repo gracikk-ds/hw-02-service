@@ -1,6 +1,6 @@
 click==8.1.7
 dependency_injector==4.41.0
-dvc[ssh]==2.12.1
+dvc[ssh]==3.34.0
 fastapi==0.101.1
 httpx==0.25.0
 loguru==0.7.2
