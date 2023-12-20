@@ -8,7 +8,8 @@ install_dvc:
 init_dvc:
 	dvc init -f --no-scm
 	dvc remote add --default my_remote ssh://91.206.15.25/home/a.gordeev/dvc_files
-	dvc remote modify my_remote user a.gordeev password $(STAGING_PASSWORD)
+	dvc remote modify my_remote user a.gordeev
+	dvc remote modify my_remote password $(STAGING_PASSWORD)
 	dvc config cache.type hardlink,symlink
 
 
