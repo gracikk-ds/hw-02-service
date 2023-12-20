@@ -1,7 +1,6 @@
 .PHONY: install_dvc
 install_dvc:
-	pip install dvc[ssh]==2.12.1
-	pip install --force-reinstall -v "fsspec==2022.11.0"
+	pip install dvc[ssh]==3.34.0
 
 
 .PHONY: init_dvc
