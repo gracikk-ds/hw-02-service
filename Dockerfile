@@ -26,7 +26,6 @@ FROM base AS prod
 # Install requirements
 COPY --chown=appuser:appuser requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY --chown=appuser:appuser .env .
 COPY --chown=appuser:appuser README.md .
 COPY --chown=appuser:appuser setup.py .
 COPY --chown=appuser:appuser configs/ configs/
