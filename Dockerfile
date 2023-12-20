@@ -9,7 +9,7 @@ USER root
 RUN apt-get update && apt-get install -y \
     wget libssl-dev libffi-dev cmake \
     libnuma-dev pkgconf libbz2-dev && \
-    apt-get clean libturbojpeg
+    apt-get clean libturbojpeg gcc ffmpeg libsm6 libxext6
 
 # Switch to the non-root user
 USER appuser
