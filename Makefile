@@ -1,7 +1,6 @@
 .PHONY: install_dvc
 install_dvc:
-	pip install pygit2==1.10.1 pathspec==0.9.0
-	pip install dvc[ssh]==2.5.4
+	pip install dvc[ssh]==2.12.1
 
 
 .PHONY: init_dvc
