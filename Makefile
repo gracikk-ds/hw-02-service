@@ -7,7 +7,7 @@ install_dvc:
 .PHONY: init_dvc
 init_dvc:
 	git init
-	dvc init -f --no-scm
+	dvc init -f
 	dvc remote add --default my_remote ssh://91.206.15.25/home/a.gordeev/dvc_files
 	dvc remote modify my_remote user a.gordeev
 	dvc remote modify my_remote password $(STAGING_PASSWORD)
