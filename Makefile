@@ -16,4 +16,4 @@ init_dvc:
 
 .PHONY: download_weights
 download_weights:
-	dvc pull -R weights
+	dvc pull
