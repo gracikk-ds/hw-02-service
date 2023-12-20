@@ -40,10 +40,10 @@ pull_model:
     - make install_dvc
     - make init_dvc
     - make download_weights
-  artifacts:
-    paths:
-      - weights/*.pt
-    expire_in: 1 day
+  # artifacts:
+  #   paths:
+  #     - weights/*.pt
+  #   expire_in: 1 day
 
 print_working_directory:
   stage: print
