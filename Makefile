@@ -1,6 +1,6 @@
 .PHONY: install_dvc
 install_dvc:
-	pip install dvc[ssh]==2.12.1
+	pip install fsspec==2023.12.2 dvc[ssh]==2.12.1
 
 
 .PHONY: init_dvc
