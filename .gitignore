@@ -1,4 +1,7 @@
 # Byte-compiled / optimized / DLL files
+.dvc/cache/
+.dvc/tmp/
+.dvc/config_local
 __pycache__/
 venv
 *.py[cod]

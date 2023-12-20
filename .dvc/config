@@ -1,8 +1,10 @@
 [core]
     autostage = true
     remote = myremote
+    no_scm = True
 [cache]
     type = "hardlink,symlink"
 ['remote "myremote"']
     url = ssh://91.206.15.25/home/a.gordeev/dvc_files
     user = a.gordeev
+    password = VUR-wBt-u8M
