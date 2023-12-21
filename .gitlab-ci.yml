@@ -96,7 +96,7 @@ deploy:
   variables:
     ANSIBLE_HOST_KEY_CHECKING: "false"
   script:
-    - apt-get install sshpass
+    - apt-get update && apt-get install -y sshpass
     - python3 -m pip install ansible==6.0.0
     - make deploy DOCKER_IMAGE=${DOCKER_IMAGE} DOCKER_TAG=prod_${DOCKER_TAG}
 
