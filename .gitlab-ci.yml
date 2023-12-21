@@ -27,7 +27,6 @@ variables:
 
 stages:
   - prepare
-  - print
   - build
   - lint
   - tests
@@ -37,6 +36,7 @@ pull_model:
   <<: *ssh_key_template
   stage: prepare
   script:
+    - sudo apt-get install sshpass
     - make install_dvc
     - make init_dvc
     - make download_weights
@@ -44,11 +44,6 @@ pull_model:
     paths:
       - weights/*.pt
     expire_in: 1 hour
-
-print_working_directory:
-  stage: print
-  script:
-    - ls -la
 
 build_image_test:
   stage: build
@@ -101,6 +96,7 @@ deploy:
   variables:
     ANSIBLE_HOST_KEY_CHECKING: "false"
   script:
+    - sudo apt-get install sshpass
     - python3 -m pip install ansible==6.0.0
     - make deploy DOCKER_IMAGE=${DOCKER_IMAGE} DOCKER_TAG=prod_${DOCKER_TAG}
 
