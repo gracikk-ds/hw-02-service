@@ -36,7 +36,6 @@ pull_model:
   <<: *ssh_key_template
   stage: prepare
   script:
-    - apt-get update && apt-get install -y sshpass
     - make install_dvc
     - make init_dvc
     - make download_weights

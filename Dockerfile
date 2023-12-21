@@ -33,7 +33,7 @@ COPY --chown=appuser:appuser setup.py .
 COPY --chown=appuser:appuser configs/ configs/
 RUN pip install --no-cache-dir .
 
-ARG PORT=8000
+ARG PORT=5000
 ENV PORT=$PORT
 CMD python -m uvicorn --host 0.0.0.0 --port $PORT --factory src.app:create_app
 
