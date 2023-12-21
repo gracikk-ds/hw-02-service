@@ -20,7 +20,7 @@ download_weights:
 .PHONY: deploy
 deploy:
 	ansible-playbook -i deploy/ansible/inventory.ini  deploy/ansible/deploy.yml \
-		-e host=$(DEPLOY_HOST) \
+		-e host=$(STAGING_HOST) \
 		-e docker_image=$(DOCKER_IMAGE) \
 		-e docker_tag=$(DOCKER_TAG) \
 		-e docker_registry_user=$(CI_REGISTRY_USER) \

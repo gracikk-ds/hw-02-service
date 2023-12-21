@@ -30,9 +30,9 @@
       ignore_errors: true
       tags: [ 'deploy' ]
 
-    # - name: run docker
-    #   command: "{{ playbook_dest }}/run.sh"
-    #   tags: [ 'deploy' ]
+    - name: run docker
+      command: "{{ playbook_dest }}/run.sh"
+      tags: [ 'deploy' ]
 
     - name: clean docker images and containers
       command: "{{ playbook_dest }}/clean.sh"

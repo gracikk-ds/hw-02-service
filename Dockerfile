@@ -8,8 +8,9 @@ RUN useradd -m -U appuser
 USER root
 RUN apt-get update && apt-get install -y \
     wget libssl-dev libffi-dev cmake \
+    gcc ffmpeg libsm6 libxext6 libgl1-mesa-glx \
     libnuma-dev pkgconf libbz2-dev && \
-    apt-get clean libturbojpeg gcc ffmpeg libsm6 libxext6
+    apt-get clean
 
 # Switch to the non-root user
 USER appuser
@@ -17,6 +18,8 @@ USER appuser
 WORKDIR /app
 
 # Copy source code
+COPY --chown=appuser:appuser weights/ weights/
+COPY --chown=appuser:appuser configs/ configs/
 COPY --chown=appuser:appuser src/ src/
 
 # Build the production image
