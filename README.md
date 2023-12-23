@@ -48,27 +48,52 @@ docker run -itd hw02service:latest
 
 ## API Structure
 
-### /classifier
-This prefix groups the endpoint related to classification tasks.
+### /detector
+This prefix groups the endpoint related to detector tasks.
 
-#### POST /classifier/predict
+#### POST /detector/predict
 This endpoint allows you to make a prediction based on the given image.
 
 **Input:**
 image (bytes): The image file in bytes to make predictions on.
 
 **Output:**
-A JSON object containing the key 'classes', which is a list of predicted classes.
+ {"bboxes": [{coords of bbox} for bbox in bboxes]}
+
+#### POST /detector/predict_mask
+This endpoint allows you to make a prediction based on the given image.
+
+**Input:**
+image (bytes): The image file in bytes to make predictions on.
+
+**Output:**
+{"base64_encoded_mask": base64_encoded_mask}
+
+### /recognizer
+This prefix groups the endpoint related to recognizer tasks.
+
+#### POST /recognizer/predict_barcode
+This endpoint allows you to make a prediction based on the given image of the barcode.
+
+**Input:**
+image (bytes): The image of the barcode file in bytes to make predictions on.
+
+**Output:**
+"predicted barcode info."
+
+
+#### POST /recognizer/predict_image
+This endpoint allows you to make a prediction based on the given image.
+It will run the detector model and then the recognizer model will be applied to each barcode detected.
+
+**Input:**
+image (bytes): The image file in bytes to make predictions on.
+
+**Output:**
+dict of barcode's coords and its info.
 
 ### /health
 This prefix groups the endpoints related to health checks.
-
-#### GET /health/ping
-This endpoint returns a pong message.
-
-**Output:**
-A string 🏓 pong!.
-Example Request:
 
 #### GET /health/health_checker
 This endpoint checks if the service is responding.
