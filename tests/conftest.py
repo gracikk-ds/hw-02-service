@@ -26,14 +26,12 @@ TESTS_DIR = os.path.dirname(__file__)
 def sample_image_bytes():
     """Fixture for loading a sample image as bytes.
 
-    Yields:
+    Returns:
         bytes: The loaded image in bytes format.
     """
     image_file = open(os.path.join(TESTS_DIR, "images", "image.jpg"), "rb")  # noqa: WPS515
-    try:
-        yield image_file.read()
-    finally:
-        image_file.close()
+    with open(image_file, "rb") as b_file:
+        return b_file.read()
 
 
 @pytest.fixture
