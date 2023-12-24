@@ -1,0 +1,7 @@
+segmentation_model:
+  device: cpu
+  checkpoint: weights/detector.pt
+
+recognizer_model:
+  device: cpu
+  checkpoint: weights/recognizer.pt
